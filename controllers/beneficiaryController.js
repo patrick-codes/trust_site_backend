@@ -1,6 +1,5 @@
 const Beneficiary = require("../model/beneficiary_model");
 
-// ➕ Add Beneficiary
 exports.addBeneficiary = async (req, res) => {
   try {
     const { name, accountNumber, routingNumber, bank } = req.body;
@@ -18,7 +17,6 @@ exports.addBeneficiary = async (req, res) => {
   }
 };
 
-// 📋 Get All Beneficiaries
 exports.getBeneficiaries = async (req, res) => {
   try {
     const beneficiaries = await Beneficiary.find().sort({ createdAt: -1 });
