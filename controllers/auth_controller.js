@@ -45,25 +45,24 @@ const signup = async (req, res) => {
       });
 
       // Send OTP via email and SMS
-      // try {
-      //   // let phone = user.phone;
-      //   // if (phone.startsWith("0")) {
-      //   //   phone = "233" + phone.slice(1);
-      //   // }
-      //   // await sendSmsHelper({
-      //   //   to: phone,
-      //   //   otpCode: `Your TrustSphere verification code is: ${otpCode}. This code will expire in 10 minutes.`,
-      //   // });
-
-      //   await sendOTPEmail(user.email, otpCode, user.firstName);
-      // } catch (error) {
-      //   // If sending fails, delete the user
-      //   await User.findByIdAndDelete(user._id);
-      //   return res.status(500).json({
-      //     success: false,
-      //     message: "Failed to send verification code",
-      //   });
-      // }
+      try {
+        await sendOTPEmail(user.email, otpCode, user.firstName);
+        // let phone = user.phone;
+        // if (phone.startsWith("0")) {
+        //   phone = "233" + phone.slice(1);
+        // }
+        // await sendSmsHelper({
+        //   to: phone,
+        //   otpCode: `Your TrustSphere verification code is: ${otpCode}. This code will expire in 10 minutes.`,
+        // });
+      } catch (error) {
+        // If sending fails, delete the user
+        await User.findByIdAndDelete(user._id);
+        return res.status(500).json({
+          success: false,
+          message: "Failed to send verification code",
+        });
+      }
 
       res.status(201).json({
         success: true,

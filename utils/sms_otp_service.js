@@ -1,4 +1,6 @@
 // sendSmsHelper.js
+require("dotenv").config();
+
 const axios = require("axios");
 
 const clientId = process.env.clientId;
@@ -28,4 +30,4 @@ async function sendSmsHelper({ to, from = "", otpCode }) {
   return response.data;
 }
 
-module.exports = sendSmsHelper;
+module.exports = { sendSmsHelper };
