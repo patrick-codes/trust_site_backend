@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require("cors");
 
 const authRoute = require("./routes/auth_routes");
+const beneficiaryRoute = require("./routes/beneficiary_route");
+
 const connectDB = require("./confiq/dbconfiq");
 
 // Load env vars
@@ -29,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/auth", authRoute);
+app.use("/api", beneficiaryRoute);
 
 // Health check endpoint
 app.get("/api/health", (req, res) => {

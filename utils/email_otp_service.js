@@ -40,7 +40,7 @@ const sendOTPEmail = async (email, otpCode, firstName) => {
       subject: `Your Verification Code`,
       html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <img src="https://drive.google.com/file/d/1pgLIjvKRDpC5g-Qp91qg9WB8as-8owYT/view?usp=sharing" alt="TrustSphere Logo" style="width: 150px; margin-bottom: 20px;">
+      <img src="https://drive.google.com/file/d/1pgLIjvKRDpC5g-Qp91qg9WB8as-8owYT/view?usp=sharing" alt="Logo" style="width: 150px; margin-bottom: 20px;">
       <h2 style="color: #1a56db;">TrustSphere</h2>
       <p>Dear ${firstName},</p>
       <p>Your verification code for TrustSphere is:</p>
