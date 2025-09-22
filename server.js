@@ -19,6 +19,7 @@ const app = express();
 app.use(
   cors({
     origin: [
+      "https://smartlucatrust.com",
       "https://trust-site-backend.onrender.com",
       "http://localhost:5500",
       "http://127.0.0.1:5500",
