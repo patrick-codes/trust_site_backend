@@ -267,6 +267,10 @@ const login = async (req, res) => {
         },
       },
     });
+
+    // Inside login controller, after verifying credentials
+    user.lastLogin = new Date();
+    await user.save();
   } catch (error) {
     console.error("Login error:", error);
     res.status(500).json({
