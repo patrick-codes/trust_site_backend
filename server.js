@@ -1,10 +1,9 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
-
 const authRoute = require("./routes/auth_routes");
+const profileRoutes = require("./routes/profileRoutes");
 const beneficiaryRoute = require("./routes/beneficiary_route");
-
 const connectDB = require("./confiq/dbconfiq");
 
 // Load env vars
@@ -32,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/auth", authRoute);
+app.use("/api/profile", profileRoutes);
 app.use("/api", beneficiaryRoute);
 
 // Health check endpoint
